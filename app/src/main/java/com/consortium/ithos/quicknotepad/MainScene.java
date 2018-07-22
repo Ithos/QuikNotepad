@@ -15,7 +15,7 @@ public class MainScene extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_scene);
-        view = (PaintView) findViewById(R.id.paintView);
+        view = (PaintView) findViewById(R.id.PaintView);
         DisplayMetrics metrics = new DisplayMetrics();
         getWindowManager().getDefaultDisplay().getMetrics(metrics);
         view.externalInit(metrics);
@@ -42,6 +42,12 @@ public class MainScene extends AppCompatActivity {
                 return true;
             case R.id.blur:
                 view.blur();
+                return true;
+            case R.id.back:
+                view.back();
+                return true;
+            case R.id.next:
+                view.next();
                 return true;
             case R.id.clear:
                 view.clear();

@@ -2,6 +2,9 @@ package com.consortium.ithos.quicknotepad;
 
 import android.graphics.Path;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * Created by ithos on 7/16/18.
  */
@@ -12,6 +15,7 @@ public class PenPath {
     public  boolean blur;
     public int penWidth;
     public Path penPath;
+    public ArrayList<Point> pathPoints = new ArrayList<Point>();
 
     public PenPath(int color, boolean emboss, boolean blur, int penWidth, Path penPath)
     {

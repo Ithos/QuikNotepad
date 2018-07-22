@@ -21,6 +21,18 @@
         />
 
     <item
+        android:id="@+id/next"
+        app:showAsAction="never"
+        android:title="Next"
+        />
+
+    <item
+        android:id="@+id/back"
+        app:showAsAction="never"
+        android:title="Back"
+        />
+
+    <item
         android:id="@+id/clear"
         app:showAsAction="never"
         android:title="Clear"
