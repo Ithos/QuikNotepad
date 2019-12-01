@@ -37,4 +37,11 @@
         app:showAsAction="never"
         android:title="Clear"
         />
+    <item
+        android:id="@+id/AlwaysActive"
+        app:actionViewClass="android.widget.Switch"
+        android:checkable="true"
+        app:showAsAction="never"
+        android:title="Always Active"
+        />
 </menu>

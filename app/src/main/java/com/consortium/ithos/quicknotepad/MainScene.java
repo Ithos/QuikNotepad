@@ -6,10 +6,12 @@ import android.util.DisplayMetrics;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.WindowManager;
 
 public class MainScene extends AppCompatActivity {
 
     private PaintView view;
+    private boolean timeoutDisabled = true;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,6 +28,7 @@ public class MainScene extends AppCompatActivity {
     {
         MenuInflater inflater = getMenuInflater();
         getMenuInflater().inflate(R.menu.main, menu);
+	SetScreenTimeoutBlocked(timeoutDisabled, menu.findItem(R.id.AlwaysActive));
         return super.onCreateOptionsMenu(menu);
     }
 
@@ -52,8 +55,23 @@ public class MainScene extends AppCompatActivity {
             case R.id.clear:
                 view.clear();
                 return true;
+            case R.id.AlwaysActive:
+                SetScreenTimeoutBlocked(!item.isChecked(), item);
+                return true;
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    public void SetScreenTimeoutBlocked(boolean blocked, MenuItem item)
+    {
+        MenuItem checkable = item;
+        checkable.setChecked(blocked);
+        timeoutDisabled = blocked;
+
+        if(timeoutDisabled)
+            getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
+        else
+            getWindow().clearFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
     }
 }
